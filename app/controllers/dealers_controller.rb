@@ -18,7 +18,7 @@ class DealersController < ApplicationController
                           open: params[:open])
     redirect_to "/dealers"
   end
-
+   
   def edit
     @dealer = Dealer.find(params[:id])
   end
