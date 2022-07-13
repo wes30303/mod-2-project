@@ -1,0 +1,9 @@
+
+<h1> <%= @dealer.name %></h1>
+<h1> Number of Cars in dealer: <%= @dealer.car_count %> </h1>
+<p> <%= @dealer.city %> </p>
+<p> <%= @dealer.open %> </p>
+<p> <%= @dealer.rank %> </p>
+<%= link_to "Dealers Cars Index", "/dealers/#{@dealer.id}/cars" %>
+
+<%= link_to 'Update Dealer', "/dealers/#{@dealer.id}/edit" %>

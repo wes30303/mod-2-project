@@ -1,0 +1,10 @@
+
+<h1> This is all the dealers </h1>
+<%= link_to "New Dealer", "/dealers/new" %>
+<%= @dealers.most_recently_created.each_with_index do |dealer, index| %>
+  <div id="index-<%= index %>">
+  <p> <%= dealer.name %> </p>
+  <p> <%= dealer.created_at %> </p>
+  </div>
+
+<% end %>

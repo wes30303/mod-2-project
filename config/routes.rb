@@ -1,3 +1,16 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/cars', to: 'cars#index'
+
+  get '/dealers', to: 'dealers#index'
+  get '/dealers/new', to: 'dealers#new'
+  post '/dealers', to: "dealers#create"
+  get '/dealers/:id/edit', to: 'dealers#edit'
+  patch '/dealers/:id', to: 'dealers#update'
+  get '/cars/:id/edit', to: 'cars#edit'
+  patch '/cars/:id', to: 'cars#update'
+  get '/cars/:id', to: 'cars#show'
+  get '/dealers/:id', to: 'dealers#show'
+  get '/dealers/:id/cars', to: 'dealer_cars#index'
+  get '/dealers/:id/cars/new', to: 'dealer_cars#new'
+  post '/dealers/:id/cars', to: 'dealer_cars#create'
 end

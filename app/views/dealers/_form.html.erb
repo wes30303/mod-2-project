@@ -1,0 +1,12 @@
+<%= form_with url: path, method: method do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :city %>
+  <%= form.text_field :city %>
+  <%= form.label :rank %>
+  <%= form.text_field :rank %>
+  <%= form.label :open %>
+  <%= form.text_field :open %>
+
+  <%= form.submit button_text %>
+<% end %>
