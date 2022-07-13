@@ -35,4 +35,35 @@ require 'rails_helper'
 
     end
 
+    it "is able to Update" do
+      dealer = Dealer.create!(name: "shomp subaru", city: "denver", open: false, rank:3.5)
+      dealer_2 = Dealer.create!(name: "Toyota", city: "denver", open: true, rank:2)
+      dealer_3 = Dealer.create!(name: "Jeep", city: "denver", open: true, rank:4)
+      visit '/dealers'
+
+      expect(page).to have_link('Update Dealer')
+
+    end
+
+    it "is able to delete" do
+      dealer = Dealer.create!(name: "shomp subaru", city: "denver", open: false, rank:3.5)
+      dealer_2 = Dealer.create!(name: "Toyota", city: "denver", open: true, rank:2)
+      dealer_3 = Dealer.create!(name: "Jeep", city: "denver", open: true, rank:4)
+
+      visit '/dealers'
+
+      within '#index-2' do
+        expect(page).to have_link("Delete Dealer")
+      end
+      within '#index-1' do
+        expect(page).to have_link("Delete Dealer")
+      end
+      within '#index-0' do
+        expect(page).to have_link("Delete Dealer")
+        click_link 'Delete Dealer'
+      end
+
+      expect(page).to_not have_content('Jeep')
+    end
+
   end

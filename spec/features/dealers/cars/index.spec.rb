@@ -25,4 +25,5 @@ RSpec.describe 'shows all of the dealers cars index' do
 
     expect(current_path).to eq("/cars/#{car.id}")
   end
+
 end

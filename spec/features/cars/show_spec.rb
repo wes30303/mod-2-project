@@ -22,4 +22,16 @@ RSpec.describe 'the cars in the show page' do
     expect(page).to have_link('Cars Index')
 
   end
+
+  it "is able to delete a car" do
+    dealer = Dealer.create!(name: "shomp subaru", city: "denver", open: false, rank:3.5)
+    car = dealer.cars.create!(name: "brz", color: "yellow", year: 2017, available:false)
+
+    visit "/cars/#{car.id}"
+
+    expect(page).to have_link('Delete Car')
+    click_link 'Delete Car'
+    expect(current_path).to eq('/cars')
+    expect(page).to_not have_content('brz')
+  end
 end

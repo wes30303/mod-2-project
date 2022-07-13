@@ -31,4 +31,10 @@ class DealersController < ApplicationController
                           open: params[:open])
     redirect_to "/dealers/#{dealer.id}"
   end
+
+  def destroy
+    dealer = Dealer.find(params[:id])
+    dealer.destroy
+    redirect_to '/dealers'
+  end
 end

@@ -5,6 +5,8 @@
   <div id="index-<%= index %>">
   <p> <%= dealer.name %> </p>
   <p> <%= dealer.created_at %> </p>
+  <%= link_to 'Update Dealer', "/dealers/#{dealer.id}/edit"%>
+  <%= link_to 'Delete Dealer', "/dealers/#{dealer.id}", method: :delete %>
   </div>
 
 <% end %>

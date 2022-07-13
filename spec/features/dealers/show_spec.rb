@@ -46,4 +46,16 @@ RSpec.describe 'dealers show page' do
     expect(current_path).to eq("/dealers/#{dealer.id}/cars")
   end
 
+  it "is able to delete a dealer" do
+    dealer = Dealer.create!(name: "shomp subaru", city: "denver", open: false, rank:3.5)
+
+    visit "/dealers/#{dealer.id}"
+
+    expect(page).to have_link('Delete Dealer')
+    click_link 'Delete Dealer'
+    expect(current_path).to eq('/dealers')
+    expect(page).to_not have_content('Jeep')
+
+  end
+
 end

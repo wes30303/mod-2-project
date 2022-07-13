@@ -4,4 +4,7 @@
   <p> Year : <%= car.year %> </p>
   <p> Color : <%= car.color %> </p>
   <p> Available : <%= car.available %> </p>
+  <%= link_to 'Update Cars', "/cars/#{car.id}/edit"%>
+  <%= link_to 'Delete Car', "/cars/#{car.id}", method: :delete %>
+
 <% end %>

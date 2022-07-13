@@ -1,5 +1,5 @@
 class Dealer < ApplicationRecord
-  has_many :cars
+  has_many :cars, dependent: :destroy
 
   def self.most_recently_created
     order(created_at: :desc)
